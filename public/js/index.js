@@ -4,10 +4,7 @@ var socket = io();
 
 socket.on('connect', function () {
     console.log('connected to server');
-    socket.emit('createMessage', {
-        from: 'megha',
-        text: 'yeah this is the text'
-    });
+
 
 }); //socket.on listens to the events
 
