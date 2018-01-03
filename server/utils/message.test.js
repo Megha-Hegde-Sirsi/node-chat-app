@@ -1,34 +1,27 @@
 var expect = require('expect');
 
-var { generateMessage ,generateLocationMessage} = require('./message');
+var {generateMessage, generateLocationMessage} = require('./message');
 
-describe('Generate Message', () => {
-    it('should generate the correct method object', () => {
-        var from = 'megha';
-        var text = 'message';
-        var message = generateMessage(from, text);
+describe('generateMessage', () => {
+  it('should generate correct message object', () => {
+    var from = 'Jen';
+    var text = 'Some message';
+    var message = generateMessage(from, text);
 
-        expect(message.createdAt).toBeA('number');
-        expect(message).toInclude({
-            from,
-            text
-        });
-    });
+    expect(message.createdAt).toBeA('number');
+    expect(message).toInclude({from, text});
+  });
 });
 
-describe('Generate Location Message', () => {
-    it('should generate correct location object', () => {
-        var from = 'Admin';
-        var latitude=12;
-        var longitude = 13;
-        var url = 'https://www.google.com/maps?q=12,13'
-        
-        var message = generateLocationMessage(from, latitude, longitude);
+describe('generateLocationMessage', () => {
+  it('should generate correct location object', () => {
+    var from = 'Deb';
+    var latitude = 15;
+    var longitude = 19;
+    var url = 'https://www.google.com/maps?q=15,19';
+    var message = generateLocationMessage(from, latitude, longitude);
 
-        expect(message.createdAt).toBeA('number');
-        expect(message).toInclude({
-            from,
-            url 
-        });
-    });
+    expect(message.createdAt).toBeA('number');
+    expect(message).toInclude({from, url});
+  });
 });
